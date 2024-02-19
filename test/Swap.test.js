@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
-const { BigNumber } = require("ethers");
+const { ethers } = require("ethers");
 
 const DAI = "0x6b175474e89094c44da98b954eedeac495271d0f";
 const WETH9 = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2";
@@ -19,21 +19,23 @@ describe("SwapExamples", function () {
     dai = await ethers.getContractAt("IERC20", DAI);
     usdc = await ethers.getContractAt("IERC20", USDC);
 
-    // const swapExamples = await ethers.deployContract("Swap");
+    //   const swapExamples = await ethers.deployContract("Swap");
     const Swap = await ethers.getContractFactory("Swap");
-    swapExamples = await SwapExamples.deploy();
-    // SwapExamples.deployed();
+    swapExamples = await Swap.deploy();
   });
 
   it("swapExactInputSingle", async function () {
     try {
-      // something wrong with the amount?
-      const amountIn = 10n ** 18n;
+      const amountIn = ethers.utils.parseUnits("1", 18); // 1 token with 18 decimals
+      // const amountIn = 10n ** 18n;
+      // const amountIn = (10n ** 18n).toString();
+      // const amountIn = ethers.BigInt(10 ** 18);
+      // const amountIn = BigInt("8").toString(10);
+      console.log(amountIn);
 
       await weth.connect(accounts[0]).deposit({ value: amountIn });
       await weth.connect(accounts[0]).approve(swapExamples.target, amountIn);
 
-      // stuck over here
       await swapExamples.swapExactInputSingle(amountIn);
       console.log("DAI balance", await dai.balanceOf(accounts[0]));
     } catch (error) {
