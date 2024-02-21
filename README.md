@@ -6,7 +6,8 @@
 [🛠️ Getting Started](#getting-started) <br />
 
 ## 🚀 Tutorial
-[![DeFi Exchange | Build Your Own Uniswap Exchange Clone | Crypto Exchange Platform Project 2023]](https://www.youtube.com/watch?v=ZNDZuT9hmNo&t=15076s)
+[![DeFi Exchange | Build Your Own Uniswap Exchange Clone | Crypto Exchange Platform Project 2023](https://img.youtube.com/vi/ZNDZuT9hmNo/maxresdefault.jpg)](https://www.youtube.com/watch?v=ZNDZuT9hmNo&t=15076s)
+
 
 ## 🛠️ Getting Started
 
