@@ -1,11 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
-
-const ALCHEMY_ETHEREUM_SEPOLIA_API_KEY = "yX0VD1S552aD9dy0DyCbsdr9Ob6t50QE";
-const ALCHEMY_ARBITRUM_SEPOLIA_API_KEY = "F6wtE-f9F1FvqUtKYQa-yBT1PnK7sKvJ";
-const ETHEREUM_SEPOLIA_PRIVATE_KEY =
-  "8d6bac6c71b5c3e175e5e41b19966bbda74897a70dac37adc2776ff16b613414";
-const ARBITRUM_SEPOLIA_PRIVATE_KEY =
-  "8d6bac6c71b5c3e175e5e41b19966bbda74897a70dac37adc2776ff16b613414";
+require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -15,8 +9,8 @@ module.exports = {
     hardhat: {},
     sepolia: {
       // url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
-      url: `https://arb-sepolia.g.alchemy.com/v2/${ALCHEMY_ETHEREUM_SEPOLIA_API_KEY}`,
-      accounts: [ETHEREUM_SEPOLIA_PRIVATE_KEY],
+      url: `https://arb-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_ETHEREUM_SEPOLIA_API_KEY}`,
+      accounts: [process.env.ETHEREUM_SEPOLIA_PRIVATE_KEY],
     },
   },
 };

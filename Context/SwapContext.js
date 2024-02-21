@@ -30,8 +30,8 @@ export const SwapTokenContextProvider = ({ children }) => {
 
   const addToken = [
     // "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-    "0xd6913b15D58Cc7E01dB9e9d154C675Ae9A8b5eFA",
-    "0x5c398e4A7B117D087f016E7c69ff33E5E19461f4",
+    "0x3A4073bcBD4bB0584B747450437A967d44F452D2", // Life Token
+    "0xfB2D717918c1BeA96caeFc8ea09F0D63b62E758A", // Boo Token
   ];
 
   const fetchingData = async () => {
@@ -64,32 +64,32 @@ export const SwapTokenContextProvider = ({ children }) => {
         const tokenLeft = await BigInt(userBalance);
         const convertTokenBal = await ethers.formatEther(tokenLeft);
 
-        const symbol = await contract.symbol();
-        const name = await contract.name();
+        // const symbol = await contract.symbol();
+        // const name = await contract.name();
 
-        return {
-          name: name,
-          symbol: symbol,
-          tokenBalance: convertTokenBal,
-        };
+        // return {
+        //   name: name,
+        //   symbol: symbol,
+        //   tokenBalance: convertTokenBal,
+        // };
       });
 
-      const tokenDataResults = await Promise.all(promises);
-      setTokenData(tokenDataResults);
+      // const tokenDataResults = await Promise.all(promises);
+      // setTokenData(tokenDataResults);
 
-      // WETH Balance
-      const wethContract = await connectingWithIWETHToken();
-      const wethBal = await wethContract.balanceOf(userAccount);
-      const wethToken = await BigInt(wethBal);
-      const convertWethTokenBal = await ethers.formatEther(wethToken);
-      setWeth9(convertWethTokenBal);
+      // // WETH Balance
+      // const wethContract = await connectingWithIWETHToken();
+      // const wethBal = await wethContract.balanceOf(userAccount);
+      // const wethToken = await BigInt(wethBal);
+      // const convertWethTokenBal = await ethers.formatEther(wethToken);
+      // setWeth9(convertWethTokenBal);
 
-      // DAI Balance
-      const daiContract = await connectingWithDAIToken();
-      const daiBal = await daiContract.balanceOf(userAccount);
-      const daiToken = await BigInt(daiBal);
-      const convertDaiTokenBal = await ethers.formatEther(daiToken);
-      setDai(convertDaiTokenBal);
+      // // DAI Balance
+      // const daiContract = await connectingWithDAIToken();
+      // const daiBal = await daiContract.balanceOf(userAccount);
+      // const daiToken = await BigInt(daiBal);
+      // const convertDaiTokenBal = await ethers.formatEther(daiToken);
+      // setDai(convertDaiTokenBal);
 
       // console.log(dai, weth9);
     } catch (error) {

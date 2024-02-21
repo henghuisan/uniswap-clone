@@ -14,13 +14,19 @@ async function main() {
   // await graceToken.waitForDeployment();
   // console.log(`GRACE deployed to ${await graceToken.target}`);
 
+  // // ERC20 TEST Token
+  const TestToken = await hre.ethers.getContractFactory("TestToken");
+  const testToken = await TestToken.deploy();
+  await testToken.waitForDeployment();
+  console.log(`TEST deployed to ${await testToken.target}`);
+
   // SingleSwapToken
-  const SingleSwapToken = await hre.ethers.getContractFactory(
-    "SingleSwapToken"
-  );
-  const singleSwapToken = await SingleSwapToken.deploy();
-  await singleSwapToken.waitForDeployment();
-  console.log(`SingleSwapToken deployed to ${await singleSwapToken.target}`);
+  // const SingleSwapToken = await hre.ethers.getContractFactory(
+  //   "SingleSwapToken"
+  // );
+  // const singleSwapToken = await SingleSwapToken.deploy();
+  // await singleSwapToken.waitForDeployment();
+  // console.log(`SingleSwapToken deployed to ${await singleSwapToken.target}`);
 
   // // SwapMultiHop
   // const SwapMultiHop = await hre.ethers.getContractFactory("SwapMultiHop");
