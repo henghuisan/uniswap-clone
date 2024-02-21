@@ -44,3 +44,10 @@ npm run dev
 ```
 
 Open your browser and visit http://localhost:3000
+
+### 6. Deploy smart contract
+To deploy smart contract on the network, run the following command:
+
+``` bash
+npx hardhat --network yournetwork run scripts/deploy.js
+```
